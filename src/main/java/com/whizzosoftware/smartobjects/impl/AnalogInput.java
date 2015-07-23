@@ -10,6 +10,13 @@ package com.whizzosoftware.smartobjects.impl;
 import com.whizzosoftware.smartobjects.AbstractSmartObject;
 import com.whizzosoftware.smartobjects.resource.ResourceConstants;
 
+/**
+ * The IPSO Analog Input object.
+ *
+ * From the spec: A generic object that can be used with any kind of analog input interface.
+ *
+ * @author Dan Noguerol
+ */
 public class AnalogInput extends AbstractSmartObject {
     public static final int ID = 3202;
     public static final String URN = "urn:oma:lwm2m:ext:3202";
@@ -21,5 +28,33 @@ public class AnalogInput extends AbstractSmartObject {
     public AnalogInput(int instanceId, Float initialValue) {
         super(ID, instanceId, URN);
         setResourceValue(ResourceConstants.AnalogInputCurrentValue, instanceId, initialValue);
+    }
+
+    public void setInputCurrentValue(Float value) {
+        setResourceValue(ResourceConstants.AnalogInputCurrentValue, 0, value);
+    }
+
+    public void setMinMeasuredValue(Float value) {
+        setResourceValue(ResourceConstants.MinMeasuredValue, 0, value);
+    }
+
+    public void setMaxMeasuredValue(Float value) {
+        setResourceValue(ResourceConstants.MaxMeasuredValue, 0, value);
+    }
+
+    public void setMinRangeValue(Float value) {
+        setResourceValue(ResourceConstants.MinRangeValue, 0, value);
+    }
+
+    public void setMaxRangeValue(Float value) {
+        setResourceValue(ResourceConstants.MaxRangeValue, 0, value);
+    }
+
+    public void setApplicationType(String type) {
+        setResourceValue(ResourceConstants.ApplicationType, 0, type);
+    }
+
+    public void setSensorType(String type) {
+        setResourceValue(ResourceConstants.SensorType, 0, type);
     }
 }

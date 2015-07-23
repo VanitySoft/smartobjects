@@ -11,27 +11,39 @@ import com.whizzosoftware.smartobjects.AbstractSmartObject;
 import com.whizzosoftware.smartobjects.resource.ResourceConstants;
 
 /**
- * The IPSO Analog Output object.
+ * The IPSO Accelerometer object.
  *
- * From the spec: A generic object that can be used with any kind of analog output interface.
+ * From the spec: Used to present a 1-3 axis accelerometer.
  *
  * @author Dan Noguerol
  */
-public class AnalogOutput extends AbstractSmartObject {
-    public static final int ID = 3203;
-    public static final String URN = "urn:oma:lwm2m:ext:3203";
+public class Accelerometer extends AbstractSmartObject {
+    public static final int ID = 3313;
+    public static final String URN = "urn:oma:lwm2m:ext:3313";
 
-    public AnalogOutput(int instanceId) {
+    public Accelerometer(int instanceId) {
         this(instanceId, null);
     }
 
-    public AnalogOutput(int instanceId, Float value) {
+    public Accelerometer(int instanceId, Float xValue) {
         super(ID, instanceId, URN);
-        setOutputCurrentValue(value);
+        setXValue(xValue);
     }
 
-    public void setOutputCurrentValue(Float value) {
-        setResourceValue(ResourceConstants.AnalogOutputCurrentValue, 0, value);
+    public void setXValue(Float value) {
+        setResourceValue(ResourceConstants.XValue, 0, value);
+    }
+
+    public void setYValue(Float value) {
+        setResourceValue(ResourceConstants.YValue, 0, value);
+    }
+
+    public void setZValue(Float value) {
+        setResourceValue(ResourceConstants.ZValue, 0, value);
+    }
+
+    public void setUnits(String value) {
+        setResourceValue(ResourceConstants.Units, 0, value);
     }
 
     public void setMinRangeValue(Float value) {
@@ -40,9 +52,5 @@ public class AnalogOutput extends AbstractSmartObject {
 
     public void setMaxRangeValue(Float value) {
         setResourceValue(ResourceConstants.MaxRangeValue, 0, value);
-    }
-
-    public void setApplicationType(String type) {
-        setResourceValue(ResourceConstants.ApplicationType, 0, type);
     }
 }

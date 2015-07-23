@@ -8,24 +8,23 @@
 package com.whizzosoftware.smartobjects.impl;
 
 /**
- * The IPSO Illuminance object.
+ * The IPSO Barometer object.
  *
- * From the spec: Should be used with an illuminance (light intensity) sensor to report an
- * illuminance measurement. It also provides resources for minimum/maximum measured values and
- * the minimum/maximum range that can be measured by the sensor. An example measurement unit is
- * Lux (ucum:lx).
+ * From the spec: Should be used with an air pressure sensor to report a barometer measurement.
+ * It also provides resources for minimum/maximum measured values and the minimum/maximum range
+ * that can be measured by the barometer sensor. An example measurement unit is kPa (ucum:kPa).
  *
  * @author Dan Noguerol
  */
-public class Illuminance extends AbstractSensor {
-    public static final int ID = 3301;
-    public static final String URN = "urn:oma:lwm2m:ext:3301";
+public class Barometer extends AbstractSensor {
+    public static final int ID = 3315;
+    public static final String URN = "urn:oma:lwm2m:ext:3315";
 
-    public Illuminance(int instanceId) {
+    public Barometer(int instanceId) {
         this(instanceId, null);
     }
 
-    public Illuminance(int instanceId, Float value) {
+    public Barometer(int instanceId, Float value) {
         super(ID, instanceId, URN, value);
     }
 }

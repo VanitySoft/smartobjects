@@ -10,6 +10,16 @@ package com.whizzosoftware.smartobjects.impl;
 import com.whizzosoftware.smartobjects.AbstractSmartObject;
 import com.whizzosoftware.smartobjects.resource.ResourceConstants;
 
+/**
+ * The IPSO Set Point object.
+ *
+ * From the spec: Should be used to set a desired value to a controller, such as a thermostat.
+ * This object enables a setpoint to be expressed units defined in the UCUM specification, to
+ * match an associated sensor or measurement value. A special resource is added to set the colour
+ * of an object.
+ *
+ * @author Dan Noguerol
+ */
 public class SetPoint extends AbstractSmartObject {
     public static final int ID = 3308;
     public static final String URN = "urn:oma:lwm2m:ext:3308";

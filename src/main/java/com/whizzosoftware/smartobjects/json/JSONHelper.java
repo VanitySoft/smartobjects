@@ -9,16 +9,28 @@ package com.whizzosoftware.smartobjects.json;
 
 import com.whizzosoftware.smartobjects.SmartObject;
 import com.whizzosoftware.smartobjects.SmartObjectFactory;
+import com.whizzosoftware.smartobjects.resource.Resource;
 import com.whizzosoftware.smartobjects.resource.ResourceClass;
 import com.whizzosoftware.smartobjects.resource.ResourceClassFactory;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
-public class JSONParser {
-
-    public List<SmartObject> parseObjectCollection(JSONObject json) {
+/**
+ * A class of convenience methods for converting SmartObjects to/from JSON.
+ *
+ * @author Dan Noguerol
+ */
+public class JSONHelper {
+    /**
+     * Create a collection of SmartObject instances from a JSON object.
+     *
+     * @param json the JSON to parse
+     * @return the resultant SmartObject collection
+     */
+    public Collection<SmartObject> createObjectCollection(JSONObject json) {
         List<SmartObject> results = new ArrayList<SmartObject>();
 
         for (String id : json.keySet()) {
@@ -34,6 +46,27 @@ public class JSONParser {
         }
 
         return results;
+    }
+
+    /**
+     * Create a JSON object from a collection of SmartObjects.
+     *
+     * @param objects the collection of objects
+     * @return the resultant JSON object
+     */
+    public JSONObject createJSONCollection(Collection<SmartObject> objects) {
+        JSONObject json = new JSONObject();
+
+        for (SmartObject so : objects) {
+            String oid = Integer.toString(so.getId());
+            JSONObject rjson = new JSONObject();
+            for (Resource r : so.getResources()) {
+                rjson.put(Integer.toString(r.getResourceClass().getId()), r.getValue());
+            }
+            json.put(oid, rjson);
+        }
+
+        return json;
     }
 
     private SmartObject createSmartObject(String id) {

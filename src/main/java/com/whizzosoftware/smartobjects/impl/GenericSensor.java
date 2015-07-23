@@ -9,6 +9,15 @@ package com.whizzosoftware.smartobjects.impl;
 
 import com.whizzosoftware.smartobjects.resource.ResourceConstants;
 
+/**
+ * The IPSO Generic Sensor object.
+ *
+ * From the spec: Allows the description of a generic sensor. It is based on the description of
+ * a value and measurement units according to the UCUM specification. Thus, any type of value
+ * defined within the UCUM specification can be reported using this object.
+ *
+ * @author Dan Noguerol
+ */
 public class GenericSensor extends AbstractSensor {
     public static final int ID = 3300;
     public static final String URN = "urn:oma:lwm2m:ext:3300";

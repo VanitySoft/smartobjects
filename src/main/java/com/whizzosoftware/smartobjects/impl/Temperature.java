@@ -7,6 +7,16 @@
  *******************************************************************************/
 package com.whizzosoftware.smartobjects.impl;
 
+/**
+ * The IPSO Temperature object.
+ *
+ * From the spec: Should be used with a temperature sensor to report a temperature measurement.
+ * It also provides resources for minimum/maximum measured values and the minimum/maximum range
+ * that can be measured by the temperature sensor. An example measurement unit is degrees
+ * Celsius (ucum:Cel).
+ *
+ * @author Dan Noguerol
+ */
 public class Temperature extends AbstractSensor {
     public static final int ID = 3303;
     public static final String URN = "urn:oma:lwm2m:ext:3303";
@@ -17,5 +27,6 @@ public class Temperature extends AbstractSensor {
 
     public Temperature(int instanceId, Float value) {
         super(ID, instanceId, URN, value);
+        setValue(value);
     }
 }

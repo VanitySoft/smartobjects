@@ -10,6 +10,13 @@ package com.whizzosoftware.smartobjects.impl;
 import com.whizzosoftware.smartobjects.AbstractSmartObject;
 import com.whizzosoftware.smartobjects.resource.ResourceConstants;
 
+/**
+ * The IPSO Digital Output object.
+ *
+ * From the spec: A generic object that can be used with any kind of digital output interface.
+ *
+ * @author Dan Noguerol
+ */
 public class DigitalOutput extends AbstractSmartObject {
     public static final int ID = 3201;
     public static final String URN = "urn:oma:lwm2m:ext:3201";
@@ -29,5 +36,9 @@ public class DigitalOutput extends AbstractSmartObject {
 
     public void setPolarity(Boolean value) {
         setResourceValue(ResourceConstants.DigitalOutputPolarity, 0, value);
+    }
+
+    public void setApplicationType(String type) {
+        setResourceValue(ResourceConstants.ApplicationType, 0, type);
     }
 }

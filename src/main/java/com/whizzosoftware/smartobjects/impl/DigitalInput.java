@@ -10,6 +10,13 @@ package com.whizzosoftware.smartobjects.impl;
 import com.whizzosoftware.smartobjects.AbstractSmartObject;
 import com.whizzosoftware.smartobjects.resource.ResourceConstants;
 
+/**
+ * The IPSO Digital Input object.
+ *
+ * From the spec: A generic object that can be used with any kind of digital input interface.
+ *
+ * @author Dan Noguerol
+ */
 public class DigitalInput extends AbstractSmartObject {
     public static final int ID = 3200;
     public static final String URN = "urn:oma:lwm2m:ext:3200";

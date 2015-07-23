@@ -7,6 +7,16 @@
  *******************************************************************************/
 package com.whizzosoftware.smartobjects.impl;
 
+/**
+ * The IPSO Humidity object.
+ *
+ * From the spec: Should be used with a humidity sensor to report humidity measurement. It also
+ * provides resources for minimum/maximum measured values and the minimum/maximum range that
+ * can be measured by the humidity sensor. An example measurement is relative humidity as a
+ * percentage (ucum:%).
+ *
+ * @author Dan Noguerol
+ */
 public class Humidity extends AbstractSensor {
     public static final int ID = 3304;
     public static final String URN = "urn:oma:lwm2m:ext:3304";
