@@ -5,13 +5,19 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package com.whizzosoftware.smartobjects.resource;
+package com.whizzosoftware.smartobjects;
 
-public enum ResourceType {
-    Boolean,
-    Float,
-    Integer,
-    Opaque,
-    String,
-    UCUMCode
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class UCUMCodeTest {
+    @Test
+    public void testToString() {
+        assertEquals("A", UCUMCode.Ampere.toString());
+    }
+
+    @Test
+    public void testFromString() {
+        assertEquals(UCUMCode.Ampere, UCUMCode.fromString("A"));
+    }
 }

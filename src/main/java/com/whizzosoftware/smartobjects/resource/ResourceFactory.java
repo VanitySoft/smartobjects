@@ -7,6 +7,7 @@
  *******************************************************************************/
 package com.whizzosoftware.smartobjects.resource;
 
+import com.whizzosoftware.smartobjects.UCUMCode;
 import com.whizzosoftware.smartobjects.resource.impl.*;
 
 public class ResourceFactory {
@@ -25,6 +26,8 @@ public class ResourceFactory {
                     return new OpaqueResource(rc, instanceId);
                 case String:
                     return new StringResource(rc, instanceId, value.toString());
+                case UCUMCode:
+                    return new UCUMCodeResource(rc, instanceId, createUCUMCodeFromObject(value));
                 default:
                     throw new RuntimeException("Unknown resource type: " + rc.getType());
             }
@@ -60,6 +63,16 @@ public class ResourceFactory {
             return (Integer)value;
         } else {
             return Integer.parseInt(value.toString());
+        }
+    }
+
+    public static UCUMCode createUCUMCodeFromObject(Object value) {
+        if (value == null) {
+            return null;
+        } else if (value instanceof UCUMCode) {
+            return (UCUMCode)value;
+        } else {
+            return UCUMCode.fromString(value.toString());
         }
     }
 }

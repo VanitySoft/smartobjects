@@ -27,7 +27,7 @@ public class ResourceClassFactory {
         classMap.put(ResourceConstants.AnalogInputCurrentValue, new ResourceClass(ResourceConstants.AnalogInputCurrentValue, AccessType.ReadOnly, ResourceType.Float));
         classMap.put(ResourceConstants.AnalogOutputCurrentValue, new ResourceClass(ResourceConstants.AnalogOutputCurrentValue, AccessType.ReadOnly, ResourceType.Float));
         classMap.put(ResourceConstants.SensorValue, new ResourceClass(ResourceConstants.SensorValue, AccessType.ReadOnly, ResourceType.Float));
-        classMap.put(ResourceConstants.Units, new ResourceClass(ResourceConstants.Units, AccessType.ReadOnly, ResourceType.String));
+        classMap.put(ResourceConstants.Units, new ResourceClass(ResourceConstants.Units, AccessType.ReadOnly, ResourceType.UCUMCode));
     }
 
     static public ResourceClass getResourceClass(int resourceId) {

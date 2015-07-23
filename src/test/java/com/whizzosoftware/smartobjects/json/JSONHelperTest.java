@@ -8,6 +8,7 @@
 package com.whizzosoftware.smartobjects.json;
 
 import com.whizzosoftware.smartobjects.SmartObject;
+import com.whizzosoftware.smartobjects.UCUMCode;
 import com.whizzosoftware.smartobjects.impl.Humidity;
 import com.whizzosoftware.smartobjects.impl.Temperature;
 import com.whizzosoftware.smartobjects.resource.Resource;
@@ -45,7 +46,7 @@ public class JSONHelperTest {
     public void testCreateObjectCollectionWithTempAndHumidity() {
         JSONHelper jh = new JSONHelper();
 
-        Collection<SmartObject> list = jh.createObjectCollection(new JSONObject(new JSONTokener("{\"3303.0\":{\"5700.0\":\"72.5\",\"5701.0\":\"Far\"},\"3304.0\":{\"5700.0\":\"30.1\",\"5701.0\":\"%\"}}")));
+        Collection<SmartObject> list = jh.createObjectCollection(new JSONObject(new JSONTokener("{\"3303.0\":{\"5700.0\":\"72.5\",\"5701.0\":\"[degF]\"},\"3304.0\":{\"5700.0\":\"30.1\",\"5701.0\":\"%\"}}")));
         assertEquals(2, list.size());
 
         Iterator<SmartObject> it = list.iterator();
@@ -58,7 +59,7 @@ public class JSONHelperTest {
         assertTrue(r.getValue().equals(72.5f) || r.getValue().equals(30.1f));
         r = so.getResource(5701, 0);
         assertNotNull(r);
-        assertTrue("Far".equals(r.getValue()) || "%".equals(r.getValue()));
+        assertTrue(UCUMCode.DegreeFahrenheit.equals(r.getValue()) || UCUMCode.Percent.equals(r.getValue()));
     }
 
     @Test

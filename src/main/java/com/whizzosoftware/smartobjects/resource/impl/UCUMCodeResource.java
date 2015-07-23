@@ -5,13 +5,14 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package com.whizzosoftware.smartobjects.resource;
+package com.whizzosoftware.smartobjects.resource.impl;
 
-public enum ResourceType {
-    Boolean,
-    Float,
-    Integer,
-    Opaque,
-    String,
-    UCUMCode
+import com.whizzosoftware.smartobjects.UCUMCode;
+import com.whizzosoftware.smartobjects.resource.AbstractResource;
+import com.whizzosoftware.smartobjects.resource.ResourceClass;
+
+public class UCUMCodeResource extends AbstractResource<UCUMCode> {
+    public UCUMCodeResource(ResourceClass resourceClass, int instanceId, UCUMCode value) {
+        super(resourceClass, instanceId, value);
+    }
 }
