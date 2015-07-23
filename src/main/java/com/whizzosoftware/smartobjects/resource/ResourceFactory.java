@@ -12,7 +12,7 @@ import com.whizzosoftware.smartobjects.resource.impl.*;
 
 public class ResourceFactory {
 
-    public static Resource newResourceInstance(int resourceId, int instanceId, Object value) {
+    public static Resource newResourceInstance(int resourceId, int instanceId, Object value) throws InvalidResourceException {
         ResourceClass rc = ResourceClassFactory.getResourceClass(resourceId);
         if (rc != null) {
             switch (rc.getType()) {
@@ -29,10 +29,10 @@ public class ResourceFactory {
                 case UCUMCode:
                     return new UCUMCodeResource(rc, instanceId, createUCUMCodeFromObject(value));
                 default:
-                    throw new RuntimeException("Unknown resource type: " + rc.getType());
+                    throw new InvalidResourceException("Unknown resource type: " + rc.getType());
             }
         } else {
-            throw new RuntimeException("Resource class not found for: " + resourceId);
+            throw new InvalidResourceException("Unknown resource ID: " + resourceId);
         }
     }
 
@@ -46,33 +46,46 @@ public class ResourceFactory {
         }
     }
 
-    public static Float createFloatFromObject(Object value) {
+    public static Float createFloatFromObject(Object value) throws InvalidResourceException {
         if (value == null) {
             return null;
         } else if (value instanceof Float) {
             return (Float)value;
         } else {
-            return Float.parseFloat(value.toString());
+            try {
+                return Float.parseFloat(value.toString());
+            } catch (NumberFormatException e) {
+                throw new InvalidResourceException("Invalid float value: " + value);
+            }
         }
     }
 
-    public static Integer createIntegerFromObject(Object value) {
+    public static Integer createIntegerFromObject(Object value) throws InvalidResourceException {
         if (value == null) {
             return null;
         } else if (value instanceof Integer) {
             return (Integer)value;
         } else {
-            return Integer.parseInt(value.toString());
+            try {
+                return Integer.parseInt(value.toString());
+            } catch (NumberFormatException e) {
+                throw new InvalidResourceException("Invalid int value: " + value);
+            }
         }
     }
 
-    public static UCUMCode createUCUMCodeFromObject(Object value) {
+    public static UCUMCode createUCUMCodeFromObject(Object value) throws InvalidResourceException {
         if (value == null) {
             return null;
         } else if (value instanceof UCUMCode) {
             return (UCUMCode)value;
         } else {
-            return UCUMCode.fromString(value.toString());
+            UCUMCode code = UCUMCode.fromString(value.toString());
+            if (code != null) {
+                return code;
+            } else {
+                throw new InvalidResourceException("Invalid UCUM code: " + value);
+            }
         }
     }
 }

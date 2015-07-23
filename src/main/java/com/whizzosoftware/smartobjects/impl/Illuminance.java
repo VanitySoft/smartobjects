@@ -7,6 +7,8 @@
  *******************************************************************************/
 package com.whizzosoftware.smartobjects.impl;
 
+import com.whizzosoftware.smartobjects.resource.InvalidResourceException;
+
 /**
  * The IPSO Illuminance object.
  *
@@ -21,11 +23,11 @@ public class Illuminance extends AbstractSensor {
     public static final int ID = 3301;
     public static final String URN = "urn:oma:lwm2m:ext:3301";
 
-    public Illuminance(int instanceId) {
+    public Illuminance(int instanceId) throws InvalidResourceException {
         this(instanceId, null);
     }
 
-    public Illuminance(int instanceId, Float value) {
+    public Illuminance(int instanceId, Float value) throws InvalidResourceException {
         super(ID, instanceId, URN, value);
     }
 }

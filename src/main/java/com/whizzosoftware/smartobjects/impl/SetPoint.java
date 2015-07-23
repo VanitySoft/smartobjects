@@ -8,6 +8,7 @@
 package com.whizzosoftware.smartobjects.impl;
 
 import com.whizzosoftware.smartobjects.AbstractSmartObject;
+import com.whizzosoftware.smartobjects.resource.InvalidResourceException;
 import com.whizzosoftware.smartobjects.resource.ResourceConstants;
 
 /**
@@ -24,28 +25,28 @@ public class SetPoint extends AbstractSmartObject {
     public static final int ID = 3308;
     public static final String URN = "urn:oma:lwm2m:ext:3308";
 
-    public SetPoint(int instanceId) {
+    public SetPoint(int instanceId) throws InvalidResourceException {
         this(instanceId, null);
     }
 
-    public SetPoint(int instanceId, Float value) {
+    public SetPoint(int instanceId, Float value) throws InvalidResourceException {
         super(ID, instanceId, URN);
         setValue(value);
     }
 
-    public void setValue(Float value) {
+    public void setValue(Float value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.SetPointValue, 0, value);
     }
 
-    public void setColour(String value) {
+    public void setColour(String value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.Colour, 0, value);
     }
 
-    public void setUnits(String units) {
+    public void setUnits(String units) throws InvalidResourceException {
         setResourceValue(ResourceConstants.Units, 0, units);
     }
 
-    public void setApplicationType(String type) {
+    public void setApplicationType(String type) throws InvalidResourceException {
         setResourceValue(ResourceConstants.ApplicationType, 0, type);
     }
 }

@@ -8,6 +8,7 @@
 package com.whizzosoftware.smartobjects.impl;
 
 import com.whizzosoftware.smartobjects.AbstractSmartObject;
+import com.whizzosoftware.smartobjects.resource.InvalidResourceException;
 import com.whizzosoftware.smartobjects.resource.ResourceConstants;
 
 /**
@@ -21,36 +22,36 @@ public class Accelerometer extends AbstractSmartObject {
     public static final int ID = 3313;
     public static final String URN = "urn:oma:lwm2m:ext:3313";
 
-    public Accelerometer(int instanceId) {
+    public Accelerometer(int instanceId) throws InvalidResourceException {
         this(instanceId, null);
     }
 
-    public Accelerometer(int instanceId, Float xValue) {
+    public Accelerometer(int instanceId, Float xValue) throws InvalidResourceException {
         super(ID, instanceId, URN);
         setXValue(xValue);
     }
 
-    public void setXValue(Float value) {
+    public void setXValue(Float value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.XValue, 0, value);
     }
 
-    public void setYValue(Float value) {
+    public void setYValue(Float value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.YValue, 0, value);
     }
 
-    public void setZValue(Float value) {
+    public void setZValue(Float value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.ZValue, 0, value);
     }
 
-    public void setUnits(String value) {
+    public void setUnits(String value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.Units, 0, value);
     }
 
-    public void setMinRangeValue(Float value) {
+    public void setMinRangeValue(Float value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.MinRangeValue, 0, value);
     }
 
-    public void setMaxRangeValue(Float value) {
+    public void setMaxRangeValue(Float value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.MaxRangeValue, 0, value);
     }
 }

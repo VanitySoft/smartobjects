@@ -5,12 +5,19 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package com.whizzosoftware.smartobjects.resource;
+package com.whizzosoftware.smartobjects;
 
-public interface Resource<T> {
-    public ResourceClass getResourceClass();
-    public int getInstanceId();
-    public T getValue();
-    public void setValue(T value) throws InvalidResourceException;
-    public void validate(T value) throws InvalidResourceException;
+/**
+ * An exception thrown when a smart object is determined to be invalid.
+ *
+ * @author Dan Noguerol
+ */
+public class InvalidObjectException extends RuntimeException {
+    public InvalidObjectException(String message) {
+        super(message);
+    }
+
+    public InvalidObjectException(String message, Throwable cause) {
+        super(message, cause);
+    }
 }

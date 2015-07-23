@@ -8,6 +8,7 @@
 package com.whizzosoftware.smartobjects.impl;
 
 import com.whizzosoftware.smartobjects.AbstractSmartObject;
+import com.whizzosoftware.smartobjects.resource.InvalidResourceException;
 import com.whizzosoftware.smartobjects.resource.ResourceConstants;
 
 /**
@@ -21,40 +22,40 @@ public class AnalogInput extends AbstractSmartObject {
     public static final int ID = 3202;
     public static final String URN = "urn:oma:lwm2m:ext:3202";
 
-    public AnalogInput(int instanceId) {
+    public AnalogInput(int instanceId) throws InvalidResourceException {
         this(instanceId, null);
     }
 
-    public AnalogInput(int instanceId, Float initialValue) {
+    public AnalogInput(int instanceId, Float initialValue) throws InvalidResourceException {
         super(ID, instanceId, URN);
         setResourceValue(ResourceConstants.AnalogInputCurrentValue, instanceId, initialValue);
     }
 
-    public void setInputCurrentValue(Float value) {
+    public void setInputCurrentValue(Float value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.AnalogInputCurrentValue, 0, value);
     }
 
-    public void setMinMeasuredValue(Float value) {
+    public void setMinMeasuredValue(Float value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.MinMeasuredValue, 0, value);
     }
 
-    public void setMaxMeasuredValue(Float value) {
+    public void setMaxMeasuredValue(Float value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.MaxMeasuredValue, 0, value);
     }
 
-    public void setMinRangeValue(Float value) {
+    public void setMinRangeValue(Float value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.MinRangeValue, 0, value);
     }
 
-    public void setMaxRangeValue(Float value) {
+    public void setMaxRangeValue(Float value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.MaxRangeValue, 0, value);
     }
 
-    public void setApplicationType(String type) {
+    public void setApplicationType(String type) throws InvalidResourceException {
         setResourceValue(ResourceConstants.ApplicationType, 0, type);
     }
 
-    public void setSensorType(String type) {
+    public void setSensorType(String type) throws InvalidResourceException {
         setResourceValue(ResourceConstants.SensorType, 0, type);
     }
 }

@@ -8,6 +8,7 @@
 package com.whizzosoftware.smartobjects.impl;
 
 import com.whizzosoftware.smartobjects.AbstractSmartObject;
+import com.whizzosoftware.smartobjects.resource.InvalidResourceException;
 import com.whizzosoftware.smartobjects.resource.ResourceConstants;
 
 /**
@@ -21,28 +22,28 @@ public class AnalogOutput extends AbstractSmartObject {
     public static final int ID = 3203;
     public static final String URN = "urn:oma:lwm2m:ext:3203";
 
-    public AnalogOutput(int instanceId) {
+    public AnalogOutput(int instanceId) throws InvalidResourceException {
         this(instanceId, null);
     }
 
-    public AnalogOutput(int instanceId, Float value) {
+    public AnalogOutput(int instanceId, Float value) throws InvalidResourceException {
         super(ID, instanceId, URN);
         setOutputCurrentValue(value);
     }
 
-    public void setOutputCurrentValue(Float value) {
+    public void setOutputCurrentValue(Float value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.AnalogOutputCurrentValue, 0, value);
     }
 
-    public void setMinRangeValue(Float value) {
+    public void setMinRangeValue(Float value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.MinRangeValue, 0, value);
     }
 
-    public void setMaxRangeValue(Float value) {
+    public void setMaxRangeValue(Float value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.MaxRangeValue, 0, value);
     }
 
-    public void setApplicationType(String type) {
+    public void setApplicationType(String type) throws InvalidResourceException {
         setResourceValue(ResourceConstants.ApplicationType, 0, type);
     }
 }

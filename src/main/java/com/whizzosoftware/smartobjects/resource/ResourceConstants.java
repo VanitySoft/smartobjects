@@ -11,7 +11,7 @@ public class ResourceConstants {
     public static final int DigitalInputState = 5500;
     public static final int DigitalInputCounter = 5501;
     public static final int DigitalInputPolarity = 5502;
-    public static final int DigitalInputDebouncePeriod = 5503;
+    public static final int DigitalInputDebouncePeriodInMs = 5503;
     public static final int DigitalInputEdgeSelection = 5504;
     public static final int DigitalInputCounterReset = 5505;
     public static final int DigitalOutputState = 5550;

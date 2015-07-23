@@ -8,6 +8,7 @@
 package com.whizzosoftware.smartobjects.impl;
 
 import com.whizzosoftware.smartobjects.AbstractSmartObject;
+import com.whizzosoftware.smartobjects.resource.InvalidResourceException;
 import com.whizzosoftware.smartobjects.resource.ResourceConstants;
 
 /**
@@ -23,20 +24,20 @@ public class LightControl extends AbstractSmartObject {
     public static final int ID = 3311;
     public static final String URN = "urn:oma:lwm2m:ext:3311";
 
-    public LightControl(int instanceId) {
+    public LightControl(int instanceId) throws InvalidResourceException {
         this(instanceId, null);
     }
 
-    public LightControl(int instanceId, Boolean onOff) {
+    public LightControl(int instanceId, Boolean onOff) throws InvalidResourceException {
         super(ID, instanceId, URN);
         setOnOff(onOff);
     }
 
-    public void setOnOff(Boolean value) {
+    public void setOnOff(Boolean value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.OnOff, 0, value);
     }
 
-    public void setDimmer(Integer value) {
+    public void setDimmer(Integer value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.Dimmer, 0, value);
     }
 
@@ -45,23 +46,23 @@ public class LightControl extends AbstractSmartObject {
      *
      * @param value A string representing a value in some colour space. Defined by the units resource.
      */
-    public void setColour(String value) {
+    public void setColour(String value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.Colour, 0, value);
     }
 
-    public void setUnits(String value) {
+    public void setUnits(String value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.Units, 0, value);
     }
 
-    public void setOnTime(Integer value) {
+    public void setOnTime(Integer value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.OnTime, 0, value);
     }
 
-    public void setCumulativeReactivePower(Float value) {
+    public void setCumulativeReactivePower(Float value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.CumulativeReactivePower, 0, value);
     }
 
-    public void setPowerFactor(Float value) {
+    public void setPowerFactor(Float value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.PowerFactor, 0, value);
     }
 }

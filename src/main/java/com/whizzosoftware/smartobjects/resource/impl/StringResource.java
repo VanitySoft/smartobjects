@@ -8,10 +8,11 @@
 package com.whizzosoftware.smartobjects.resource.impl;
 
 import com.whizzosoftware.smartobjects.resource.AbstractResource;
+import com.whizzosoftware.smartobjects.resource.InvalidResourceException;
 import com.whizzosoftware.smartobjects.resource.ResourceClass;
 
 public class StringResource extends AbstractResource<String> {
-    public StringResource(ResourceClass resourceClass, int instanceId, String value) {
+    public StringResource(ResourceClass resourceClass, int instanceId, String value) throws InvalidResourceException {
         super(resourceClass, instanceId, value);
     }
 }

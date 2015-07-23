@@ -7,6 +7,7 @@
  *******************************************************************************/
 package com.whizzosoftware.smartobjects;
 
+import com.whizzosoftware.smartobjects.resource.InvalidResourceException;
 import com.whizzosoftware.smartobjects.resource.Resource;
 import com.whizzosoftware.smartobjects.resource.ResourceFactory;
 
@@ -46,7 +47,7 @@ public abstract class AbstractSmartObject implements SmartObject {
         return resources.get(id + "." + instanceId);
     }
 
-    public void setResourceValue(int resourceId, int instanceId, Object value) {
+    public void setResourceValue(int resourceId, int instanceId, Object value) throws InvalidResourceException {
         Resource r = getResource(resourceId, instanceId);
         if (r == null) {
             addResource(ResourceFactory.newResourceInstance(resourceId, instanceId, value));

@@ -12,10 +12,10 @@ abstract public class AbstractResource<T> implements Resource<T> {
     private int instanceId;
     private T value;
 
-    public AbstractResource(ResourceClass resourceClass, int instanceId, T value) {
+    public AbstractResource(ResourceClass resourceClass, int instanceId, T value) throws InvalidResourceException {
         this.resourceClass = resourceClass;
         this.instanceId = instanceId;
-        this.value = value;
+        setValue(value);
     }
 
     public ResourceClass getResourceClass() {
@@ -30,7 +30,14 @@ abstract public class AbstractResource<T> implements Resource<T> {
         return value;
     }
 
-    public void setValue(T value) {
+    public void setValue(T value) throws InvalidResourceException {
+        validate(value);
         this.value = value;
+    }
+
+    public void validate(T value) throws InvalidResourceException {
+        if (resourceClass.hasValueValidator()) {
+            resourceClass.getValueValidator().validate(value);
+        }
     }
 }

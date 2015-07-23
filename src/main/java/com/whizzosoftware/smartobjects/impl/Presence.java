@@ -8,6 +8,7 @@
 package com.whizzosoftware.smartobjects.impl;
 
 import com.whizzosoftware.smartobjects.AbstractSmartObject;
+import com.whizzosoftware.smartobjects.resource.InvalidResourceException;
 import com.whizzosoftware.smartobjects.resource.ResourceConstants;
 
 /**
@@ -23,28 +24,28 @@ public class Presence extends AbstractSmartObject {
     public static final int ID = 3302;
     public static final String URN = "urn:oma:lwm2m:ext:3302";
 
-    public Presence(int instanceId) {
+    public Presence(int instanceId) throws InvalidResourceException {
         this(instanceId, null);
     }
 
-    public Presence(int instanceId, Boolean value) {
+    public Presence(int instanceId, Boolean value) throws InvalidResourceException {
         super(ID, instanceId, URN);
         setDigitalInputState(value);
     }
 
-    public void setDigitalInputState(Boolean value) {
+    public void setDigitalInputState(Boolean value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.DigitalInputState, 0, value);
     }
 
-    public void setDigitalInputCounter(Integer value) {
+    public void setDigitalInputCounter(Integer value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.DigitalInputCounter, 0, value);
     }
 
-    public void setBusyToClearDelay(Integer value) {
+    public void setBusyToClearDelay(Integer value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.BusyToClearDelay, 0, value);
     }
 
-    public void setClearToBusyDelay(Integer value) {
+    public void setClearToBusyDelay(Integer value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.ClearToBusyDelay, 0, value);
     }
 }

@@ -7,6 +7,8 @@
  *******************************************************************************/
 package com.whizzosoftware.smartobjects.impl;
 
+import com.whizzosoftware.smartobjects.resource.InvalidResourceException;
+
 /**
  * The IPSO Temperature object.
  *
@@ -21,11 +23,11 @@ public class Temperature extends AbstractSensor {
     public static final int ID = 3303;
     public static final String URN = "urn:oma:lwm2m:ext:3303";
 
-    public Temperature(int instanceId) {
+    public Temperature(int instanceId) throws InvalidResourceException {
         this(instanceId, null);
     }
 
-    public Temperature(int instanceId, Float value) {
+    public Temperature(int instanceId, Float value) throws InvalidResourceException {
         super(ID, instanceId, URN, value);
         setValue(value);
     }

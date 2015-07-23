@@ -8,16 +8,23 @@
 package com.whizzosoftware.smartobjects.resource;
 
 import com.whizzosoftware.smartobjects.AccessType;
+import com.whizzosoftware.smartobjects.resource.validate.ValueValidator;
 
 public class ResourceClass {
     private int id;
     private AccessType accessType;
     private ResourceType type;
+    private ValueValidator valueValidator;
 
     public ResourceClass(int id, AccessType accessType, ResourceType type) {
+        this(id, accessType, type, null);
+    }
+
+    public ResourceClass(int id, AccessType accessType, ResourceType type, ValueValidator valueValidator) {
         this.id = id;
         this.accessType = accessType;
         this.type = type;
+        this.valueValidator = valueValidator;
     }
 
     public int getId() {
@@ -30,5 +37,13 @@ public class ResourceClass {
 
     public ResourceType getType() {
         return type;
+    }
+
+    public boolean hasValueValidator() {
+        return (valueValidator != null);
+    }
+
+    public ValueValidator getValueValidator() {
+        return valueValidator;
     }
 }

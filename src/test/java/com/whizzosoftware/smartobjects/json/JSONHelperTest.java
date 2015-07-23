@@ -11,8 +11,10 @@ import com.whizzosoftware.smartobjects.SmartObject;
 import com.whizzosoftware.smartobjects.UCUMCode;
 import com.whizzosoftware.smartobjects.impl.Humidity;
 import com.whizzosoftware.smartobjects.impl.Temperature;
+import com.whizzosoftware.smartobjects.resource.InvalidResourceException;
 import com.whizzosoftware.smartobjects.resource.Resource;
 import com.whizzosoftware.smartobjects.resource.ResourceConstants;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.junit.Test;
@@ -63,7 +65,17 @@ public class JSONHelperTest {
     }
 
     @Test
-    public void testCreateJSON() {
+    public void testCreateObjectCollectionWithTempAndHumidityInUnknownUnit() {
+        JSONHelper jh = new JSONHelper();
+
+        try {
+            jh.createObjectCollection(new JSONObject(new JSONTokener("{\"3303.0\":{\"5700.0\":\"72.5\",\"5701.0\":\"[degQ]\"},\"3304.0\":{\"5700.0\":\"30.1\",\"5701.0\":\"%\"}}")));
+            fail("Should have thrown exception");
+        } catch (JSONException ignored) {}
+    }
+
+    @Test
+    public void testCreateJSON() throws InvalidResourceException {
         JSONHelper jh = new JSONHelper();
 
         List<SmartObject> objects = new ArrayList<SmartObject>();

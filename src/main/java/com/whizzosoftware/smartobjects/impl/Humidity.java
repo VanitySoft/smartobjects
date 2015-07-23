@@ -7,6 +7,8 @@
  *******************************************************************************/
 package com.whizzosoftware.smartobjects.impl;
 
+import com.whizzosoftware.smartobjects.resource.InvalidResourceException;
+
 /**
  * The IPSO Humidity object.
  *
@@ -21,11 +23,11 @@ public class Humidity extends AbstractSensor {
     public static final int ID = 3304;
     public static final String URN = "urn:oma:lwm2m:ext:3304";
 
-    public Humidity(int instanceId) {
+    public Humidity(int instanceId) throws InvalidResourceException {
         this(instanceId, null);
     }
 
-    public Humidity(int instanceId, Float value) {
+    public Humidity(int instanceId, Float value) throws InvalidResourceException {
         super(ID, instanceId, URN, value);
     }
 }

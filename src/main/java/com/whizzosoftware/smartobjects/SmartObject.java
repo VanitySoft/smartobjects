@@ -7,6 +7,7 @@
  *******************************************************************************/
 package com.whizzosoftware.smartobjects;
 
+import com.whizzosoftware.smartobjects.resource.InvalidResourceException;
 import com.whizzosoftware.smartobjects.resource.Resource;
 
 import java.util.Collection;
@@ -17,5 +18,5 @@ public interface SmartObject {
     String getUrn();
     Collection<Resource> getResources();
     Resource getResource(int id, int instanceId);
-    void setResourceValue(int resourceId, int instanceId, Object value);
+    void setResourceValue(int resourceId, int instanceId, Object value) throws InvalidResourceException;
 }

@@ -8,10 +8,11 @@
 package com.whizzosoftware.smartobjects.resource.impl;
 
 import com.whizzosoftware.smartobjects.resource.AbstractResource;
+import com.whizzosoftware.smartobjects.resource.InvalidResourceException;
 import com.whizzosoftware.smartobjects.resource.ResourceClass;
 
 public class OpaqueResource extends AbstractResource<Object> {
-    public OpaqueResource(ResourceClass resourceClass, int instanceId) {
+    public OpaqueResource(ResourceClass resourceClass, int instanceId) throws InvalidResourceException {
         super(resourceClass, instanceId, null);
     }
 }

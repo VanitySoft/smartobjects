@@ -7,6 +7,7 @@
  *******************************************************************************/
 package com.whizzosoftware.smartobjects.impl;
 
+import com.whizzosoftware.smartobjects.resource.InvalidResourceException;
 import com.whizzosoftware.smartobjects.resource.ResourceConstants;
 
 /**
@@ -22,19 +23,19 @@ public class GenericSensor extends AbstractSensor {
     public static final int ID = 3300;
     public static final String URN = "urn:oma:lwm2m:ext:3300";
 
-    public GenericSensor(int instanceId) {
+    public GenericSensor(int instanceId) throws InvalidResourceException {
         this(instanceId, null);
     }
 
-    public GenericSensor(int instanceId, Float value) {
+    public GenericSensor(int instanceId, Float value) throws InvalidResourceException {
         super(ID, instanceId, URN, value);
     }
 
-    public void setApplicationType(String type) {
+    public void setApplicationType(String type) throws InvalidResourceException {
         setResourceValue(ResourceConstants.ApplicationType, 0, type);
     }
 
-    public void setSensorType(String type) {
+    public void setSensorType(String type) throws InvalidResourceException {
         setResourceValue(ResourceConstants.SensorType, 0, type);
     }
 }

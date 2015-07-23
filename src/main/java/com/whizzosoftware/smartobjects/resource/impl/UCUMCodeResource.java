@@ -9,10 +9,11 @@ package com.whizzosoftware.smartobjects.resource.impl;
 
 import com.whizzosoftware.smartobjects.UCUMCode;
 import com.whizzosoftware.smartobjects.resource.AbstractResource;
+import com.whizzosoftware.smartobjects.resource.InvalidResourceException;
 import com.whizzosoftware.smartobjects.resource.ResourceClass;
 
 public class UCUMCodeResource extends AbstractResource<UCUMCode> {
-    public UCUMCodeResource(ResourceClass resourceClass, int instanceId, UCUMCode value) {
+    public UCUMCodeResource(ResourceClass resourceClass, int instanceId, UCUMCode value) throws InvalidResourceException {
         super(resourceClass, instanceId, value);
     }
 }

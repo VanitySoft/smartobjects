@@ -8,6 +8,7 @@
 package com.whizzosoftware.smartobjects.impl;
 
 import com.whizzosoftware.smartobjects.AbstractSmartObject;
+import com.whizzosoftware.smartobjects.resource.InvalidResourceException;
 import com.whizzosoftware.smartobjects.resource.ResourceConstants;
 
 /**
@@ -21,24 +22,24 @@ public class DigitalOutput extends AbstractSmartObject {
     public static final int ID = 3201;
     public static final String URN = "urn:oma:lwm2m:ext:3201";
 
-    public DigitalOutput(int instanceId) {
+    public DigitalOutput(int instanceId) throws InvalidResourceException {
         this(instanceId, null);
     }
 
-    public DigitalOutput(int instanceId, Boolean state) {
+    public DigitalOutput(int instanceId, Boolean state) throws InvalidResourceException {
         super(ID, instanceId, URN);
         setState(state);
     }
 
-    public void setState(Boolean state) {
+    public void setState(Boolean state) throws InvalidResourceException {
         setResourceValue(ResourceConstants.DigitalOutputState, 0, state);
     }
 
-    public void setPolarity(Boolean value) {
+    public void setPolarity(Boolean value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.DigitalOutputPolarity, 0, value);
     }
 
-    public void setApplicationType(String type) {
+    public void setApplicationType(String type) throws InvalidResourceException {
         setResourceValue(ResourceConstants.ApplicationType, 0, type);
     }
 }

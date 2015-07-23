@@ -8,10 +8,11 @@
 package com.whizzosoftware.smartobjects.resource.impl;
 
 import com.whizzosoftware.smartobjects.resource.AbstractResource;
+import com.whizzosoftware.smartobjects.resource.InvalidResourceException;
 import com.whizzosoftware.smartobjects.resource.ResourceClass;
 
 public class BooleanResource extends AbstractResource<Boolean> {
-    public BooleanResource(ResourceClass resourceClass, int instanceId, Boolean value) {
+    public BooleanResource(ResourceClass resourceClass, int instanceId, Boolean value) throws InvalidResourceException {
         super(resourceClass, instanceId, value);
     }
 }

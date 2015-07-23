@@ -7,6 +7,8 @@
  *******************************************************************************/
 package com.whizzosoftware.smartobjects.impl;
 
+import com.whizzosoftware.smartobjects.resource.InvalidResourceException;
+
 /**
  * The IPSO Barometer object.
  *
@@ -20,11 +22,11 @@ public class Barometer extends AbstractSensor {
     public static final int ID = 3315;
     public static final String URN = "urn:oma:lwm2m:ext:3315";
 
-    public Barometer(int instanceId) {
+    public Barometer(int instanceId) throws InvalidResourceException {
         this(instanceId, null);
     }
 
-    public Barometer(int instanceId, Float value) {
+    public Barometer(int instanceId, Float value) throws InvalidResourceException {
         super(ID, instanceId, URN, value);
     }
 }

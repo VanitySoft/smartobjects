@@ -7,11 +7,14 @@
  *******************************************************************************/
 package com.whizzosoftware.smartobjects.json;
 
+import com.whizzosoftware.smartobjects.InvalidObjectException;
 import com.whizzosoftware.smartobjects.SmartObject;
 import com.whizzosoftware.smartobjects.SmartObjectFactory;
+import com.whizzosoftware.smartobjects.resource.InvalidResourceException;
 import com.whizzosoftware.smartobjects.resource.Resource;
 import com.whizzosoftware.smartobjects.resource.ResourceClass;
 import com.whizzosoftware.smartobjects.resource.ResourceClassFactory;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -33,19 +36,27 @@ public class JSONHelper {
     public Collection<SmartObject> createObjectCollection(JSONObject json) {
         List<SmartObject> results = new ArrayList<SmartObject>();
 
-        for (String id : json.keySet()) {
-            SmartObject so = createSmartObject(id);
+        try {
+            for (String id : json.keySet()) {
+                SmartObject so = createSmartObject(id);
 
-            // populate resources
-            JSONObject jres = json.getJSONObject(id);
-            for (String resId : jres.keySet()) {
-                setResourceValue(so, resId, jres.getString(resId));
+                // populate resources
+                JSONObject jres = json.getJSONObject(id);
+                for (String resId : jres.keySet()) {
+                    try {
+                        setResourceValue(so, resId, jres.getString(resId));
+                    } catch (InvalidResourceException e) {
+                        throw new JSONException(e);
+                    }
+                }
+
+                results.add(so);
             }
 
-            results.add(so);
+            return results;
+        } catch (InvalidObjectException e) {
+            throw new JSONException(e);
         }
-
-        return results;
     }
 
     /**
@@ -69,7 +80,7 @@ public class JSONHelper {
         return json;
     }
 
-    private SmartObject createSmartObject(String id) {
+    private SmartObject createSmartObject(String id) throws InvalidObjectException {
         int objectId;
         int instanceId = 0;
 
@@ -84,7 +95,7 @@ public class JSONHelper {
         return SmartObjectFactory.newObjectInstance(objectId, instanceId);
     }
 
-    private void setResourceValue(SmartObject so, String id, String value) {
+    private void setResourceValue(SmartObject so, String id, String value) throws InvalidResourceException {
         int resourceId;
         int instanceId = 0;
 

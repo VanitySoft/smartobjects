@@ -5,14 +5,10 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package com.whizzosoftware.smartobjects.resource.impl;
+package com.whizzosoftware.smartobjects.resource.validate;
 
-import com.whizzosoftware.smartobjects.resource.AbstractResource;
 import com.whizzosoftware.smartobjects.resource.InvalidResourceException;
-import com.whizzosoftware.smartobjects.resource.ResourceClass;
 
-public class FloatResource extends AbstractResource<Float> {
-    public FloatResource(ResourceClass resourceClass, int instanceId, Float value) throws InvalidResourceException {
-        super(resourceClass, instanceId, value);
-    }
+public interface ValueValidator<T> {
+    void validate(T value) throws InvalidResourceException;
 }

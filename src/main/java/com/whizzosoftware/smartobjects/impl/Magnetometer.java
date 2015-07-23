@@ -8,6 +8,7 @@
 package com.whizzosoftware.smartobjects.impl;
 
 import com.whizzosoftware.smartobjects.AbstractSmartObject;
+import com.whizzosoftware.smartobjects.resource.InvalidResourceException;
 import com.whizzosoftware.smartobjects.resource.ResourceConstants;
 
 /**
@@ -21,32 +22,32 @@ public class Magnetometer extends AbstractSmartObject {
     public static final int ID = 3314;
     public static final String URN = "urn:oma:lwm2m:ext:3314";
 
-    public Magnetometer(int instanceId) {
+    public Magnetometer(int instanceId) throws InvalidResourceException {
         this(instanceId, null);
     }
 
-    public Magnetometer(int instanceId, Float xValue) {
+    public Magnetometer(int instanceId, Float xValue) throws InvalidResourceException {
         super(ID, instanceId, URN);
         setXValue(xValue);
     }
 
-    public void setXValue(Float value) {
+    public void setXValue(Float value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.XValue, 0, value);
     }
 
-    public void setYValue(Float value) {
+    public void setYValue(Float value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.YValue, 0, value);
     }
 
-    public void setZValue(Float value) {
+    public void setZValue(Float value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.ZValue, 0, value);
     }
 
-    public void setUnits(String value) {
+    public void setUnits(String value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.Units, 0, value);
     }
 
-    public void setCompassDirection(Float value) {
+    public void setCompassDirection(Float value) throws InvalidResourceException {
         setResourceValue(ResourceConstants.CompassDirection, 0, value);
     }
 }

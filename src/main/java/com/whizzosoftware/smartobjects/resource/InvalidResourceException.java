@@ -7,10 +7,17 @@
  *******************************************************************************/
 package com.whizzosoftware.smartobjects.resource;
 
-public interface Resource<T> {
-    public ResourceClass getResourceClass();
-    public int getInstanceId();
-    public T getValue();
-    public void setValue(T value) throws InvalidResourceException;
-    public void validate(T value) throws InvalidResourceException;
+/**
+ * An exception thrown when a smart object resource is determined to be invalid.
+ *
+ * @author Dan Noguerol
+ */
+public class InvalidResourceException extends RuntimeException {
+    public InvalidResourceException(String message) {
+        super(message);
+    }
+
+    public InvalidResourceException(String message, Throwable cause) {
+        super(message, cause);
+    }
 }
