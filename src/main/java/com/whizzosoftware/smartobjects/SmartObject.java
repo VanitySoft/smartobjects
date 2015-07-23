@@ -5,17 +5,17 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package com.whizzosoftware.smartobjects.object.impl;
+package com.whizzosoftware.smartobjects;
 
-public class Humidity extends AbstractSensor {
-    public static final int ID = 3304;
-    public static final String URN = "urn:oma:lwm2m:ext:3304";
+import com.whizzosoftware.smartobjects.resource.Resource;
 
-    public Humidity(int instanceId) {
-        this(instanceId, null);
-    }
+import java.util.Collection;
 
-    public Humidity(int instanceId, Float value) {
-        super(ID, instanceId, URN, value);
-    }
+public interface SmartObject {
+    int getId();
+    int getInstanceId();
+    String getUrn();
+    Collection<Resource> getResources();
+    Resource getResource(int id, int instanceId);
+    void setResourceValue(int resourceId, int instanceId, Object value);
 }

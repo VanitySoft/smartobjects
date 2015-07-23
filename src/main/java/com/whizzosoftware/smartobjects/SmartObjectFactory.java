@@ -5,9 +5,9 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package com.whizzosoftware.smartobjects.object;
+package com.whizzosoftware.smartobjects;
 
-import com.whizzosoftware.smartobjects.object.impl.*;
+import com.whizzosoftware.smartobjects.impl.*;
 
 public class SmartObjectFactory {
     public static SmartObject newObjectInstance(int id, int instanceId) {

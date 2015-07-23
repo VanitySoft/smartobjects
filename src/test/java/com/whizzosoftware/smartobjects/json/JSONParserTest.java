@@ -1,6 +1,6 @@
 package com.whizzosoftware.smartobjects.json;
 
-import com.whizzosoftware.smartobjects.object.SmartObject;
+import com.whizzosoftware.smartobjects.SmartObject;
 import com.whizzosoftware.smartobjects.resource.Resource;
 import org.json.JSONObject;
 import org.json.JSONTokener;

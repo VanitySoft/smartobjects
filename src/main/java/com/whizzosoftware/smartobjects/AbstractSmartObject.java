@@ -5,7 +5,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package com.whizzosoftware.smartobjects.object;
+package com.whizzosoftware.smartobjects;
 
 import com.whizzosoftware.smartobjects.resource.Resource;
 import com.whizzosoftware.smartobjects.resource.ResourceFactory;

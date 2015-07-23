@@ -5,7 +5,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package com.whizzosoftware.smartobjects.object.impl;
+package com.whizzosoftware.smartobjects.impl;
 
 public class Illuminance extends AbstractSensor {
     public static final int ID = 3301;

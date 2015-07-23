@@ -7,8 +7,8 @@
  *******************************************************************************/
 package com.whizzosoftware.smartobjects.json;
 
-import com.whizzosoftware.smartobjects.object.SmartObject;
-import com.whizzosoftware.smartobjects.object.SmartObjectFactory;
+import com.whizzosoftware.smartobjects.SmartObject;
+import com.whizzosoftware.smartobjects.SmartObjectFactory;
 import com.whizzosoftware.smartobjects.resource.ResourceClass;
 import com.whizzosoftware.smartobjects.resource.ResourceClassFactory;
 import org.json.JSONObject;

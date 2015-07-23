@@ -5,9 +5,9 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package com.whizzosoftware.smartobjects.object.impl;
+package com.whizzosoftware.smartobjects.impl;
 
-import com.whizzosoftware.smartobjects.object.AbstractSmartObject;
+import com.whizzosoftware.smartobjects.AbstractSmartObject;
 import com.whizzosoftware.smartobjects.resource.ResourceConstants;
 
 public class DigitalOutput extends AbstractSmartObject {
