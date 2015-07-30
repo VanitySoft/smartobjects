@@ -100,12 +100,16 @@ public class JSONHelper {
         int instanceId = 0;
 
         // parse the ID ("resourceId.instanceId")
-        int ix = id.indexOf('.');
-        if (ix > -1) {
-            resourceId = Integer.parseInt(id.substring(0, ix));
-            instanceId = Integer.parseInt(id.substring(ix + 1, id.length()));
-        } else {
-            resourceId = Integer.parseInt(id);
+        try {
+            int ix = id.indexOf('.');
+            if (ix > -1) {
+                resourceId = Integer.parseInt(id.substring(0, ix));
+                instanceId = Integer.parseInt(id.substring(ix + 1, id.length()));
+            } else {
+                resourceId = Integer.parseInt(id);
+            }
+        } catch (NumberFormatException e) {
+            throw new InvalidResourceException("Invalid resource identifier: " + id, e);
         }
 
         // convert the value to the appropriate type based on the resource class definition
