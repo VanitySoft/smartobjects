@@ -83,15 +83,18 @@ public class JSONHelperTest {
         objects.add(new Humidity(0, 35.2f));
 
         JSONObject json = jh.createJSONCollection(objects);
-
+        System.out.println(json.toString() );
+        
         assertTrue(json.has(Integer.toString(Temperature.ID)));
         JSONObject t = json.getJSONObject(Integer.toString(Temperature.ID));
         assertTrue(t.has(Integer.toString(ResourceConstants.SensorValue)));
         assertEquals(72.0f, t.get(Integer.toString(ResourceConstants.SensorValue)));
-
+      
         assertTrue(json.has(Integer.toString(Humidity.ID)));
         t = json.getJSONObject(Integer.toString(Humidity.ID));
         assertTrue(t.has(Integer.toString(ResourceConstants.SensorValue)));
         assertEquals(35.2f, t.get(Integer.toString(ResourceConstants.SensorValue)));
+        
+        
     }
 }
