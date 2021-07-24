@@ -62,4 +62,5 @@ public class ResourceConstants {
     public static final int SetPointValue = 5900;
     public static final int BusyToClearDelay = 5903;
     public static final int ClearToBusyDelay = 5904;
+
 }

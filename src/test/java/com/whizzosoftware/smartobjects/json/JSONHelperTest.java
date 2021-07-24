@@ -42,6 +42,21 @@ public class JSONHelperTest {
         assertEquals(5550, r.getResourceClass().getId());
         assertEquals(0, r.getInstanceId());
         assertEquals(true, r.getValue());
+       //5550	Digital Output State	RW	Boolean	-	-	IPSO	
+      //The current state of a digital output.
+        
+      //urn:oma:lwm2m:ext:3201	3201	3201	Digital Output	-	IPSO Alliance	
+      //Generic digital output for non-specific actuators
+        System.out.println( "name [" + so.getClass().getName() +"], " + so.getUrn());
+        for(Resource resource: so.getResources()){
+            System.out.println("ID  [" +  resource.getResourceClass().getId()  +"]");
+            System.out.println( "Name [" + resource.getResourceClass().getName()+"]");
+             System.out.println("Access Type ["+  resource.getResourceClass().getAccessType() +"]");
+            System.out.println("Type [" +  resource.getResourceClass().getType() +"]");
+            System.out.println("Value validator [" +  resource.getResourceClass().getValueValidator()+"]");
+  
+        System.out.println( resource.getClass().getName() + " : " +  resource.getValue() +"]" );
+        }
     }
 
     @Test
@@ -62,6 +77,17 @@ public class JSONHelperTest {
         r = so.getResource(5701, 0);
         assertNotNull(r);
         assertTrue(UCUMCode.DegreeFahrenheit.equals(r.getValue()) || UCUMCode.Percent.equals(r.getValue()));
+    
+        System.out.println( "name [" + so.getClass().getName() +"], " + so.getUrn());
+        for(Resource resource: so.getResources()){
+            System.out.println("ID  [" +  resource.getResourceClass().getId()  +"]");
+            System.out.println( "Name [" + resource.getResourceClass().getName()+"]");
+            System.out.println("Access Type ["+  resource.getResourceClass().getAccessType() +"]");
+            System.out.println("Type [" +  resource.getResourceClass().getType() +"]");
+           // System.out.println("Value validator [" +  resource.getResourceClass().getValueValidator()+"]");
+  
+        System.out.println( resource.getClass().getName() + " : " +  resource.getValue() +"]" );
+        }
     }
 
     @Test

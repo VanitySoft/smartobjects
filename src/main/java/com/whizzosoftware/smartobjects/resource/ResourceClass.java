@@ -8,6 +8,7 @@
 package com.whizzosoftware.smartobjects.resource;
 
 import com.whizzosoftware.smartobjects.AccessType;
+import com.whizzosoftware.smartobjects.resource.utils.ResourceUtils;
 import com.whizzosoftware.smartobjects.resource.validate.ValueValidator;
 
 public class ResourceClass {
@@ -46,4 +47,8 @@ public class ResourceClass {
     public ValueValidator getValueValidator() {
         return valueValidator;
     }
+
+	public String getName() {
+		return ResourceUtils.toName(id);
+	}
 }
